@@ -5,10 +5,12 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { AppBar, Container, MenuItem, Select, Toolbar, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { CryptoState } from '../CryptoContext';
 
 const Header = (props) => {
-    //const { theme, changeTheme } = props;
     const navigate = useNavigate();
+    const { currency, setCurrency } = CryptoState();
+    console.log(currency);
     //const [theme, setTheme] = useState(true)
     //const icon = !theme ? <Brightness7Icon /> : <Brightness3Icon />
     // const light = {
@@ -59,7 +61,10 @@ const Header = (props) => {
                                 marginLeft: 15,
                                 border: "1px solid white",
                                 color: '#fff',
-                            }}>
+                            }}
+                            value={currency}
+                            onChange={(e) => setCurrency(e.target.value)}
+                        >
                             <MenuItem value={"USD"}>USD</MenuItem>
                             <MenuItem value={"INR"}>INR</MenuItem>
                         </Select>
