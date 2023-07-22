@@ -1,15 +1,15 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
 import RootLayout from './components/RootLayout';
-import Home from './Pages/Home';
-import Crypto from './Pages/Crypto';
+import Homepage from './Pages/Homepage';
+import CoinPage from './Pages/CoinPage';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
-      { path: "", element: <Home /> },
-      { path: ":crypto", element: <Crypto /> }
+      { path: "", element: <Homepage /> },
+      { path: "coins/:id", element: <CoinPage /> }
     ]
   }
 ])
