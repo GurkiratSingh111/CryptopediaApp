@@ -1,10 +1,14 @@
 import React from 'react'
+import Banner from '../components/Banner'
+import CoinsTable from '../components/CoinsTable'
 
 const Home = () => {
+
     return (
-        <div styles={{ height: "100%", width: "100%" }}>
-            Home
-        </div>
+        <>
+            <Banner />
+            <CoinsTable />
+        </>
     )
 }
 
