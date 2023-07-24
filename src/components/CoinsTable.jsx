@@ -61,7 +61,7 @@ const CoinsTable = () => {
                                 {["Coin", "Price", "24h Change", "Market Cap"].map((head) => {
                                     return <TableCell
                                         style={{
-                                            color: "black", fontWeight: "700", fontFamily: "Montserrat"
+                                            color: "black", fontWeight: "700", fontFamily: "Montserrat", border: "none"
                                         }}
                                         key={head}
                                         align={head === "Coin" ? "" : "right"}

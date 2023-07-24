@@ -53,7 +53,7 @@ const Header = (props) => {
                                 fontFamily: "Montserrat",
                                 fontWeight: "bold",
                                 cursor: "pointer"
-                            }}>Crypto Hunter</Typography>
+                            }}>Cryptopedia</Typography>
                         <Select
                             variant="outlined" style={{
                                 width: 100,
