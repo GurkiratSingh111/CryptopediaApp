@@ -21,7 +21,7 @@ const CoinInfo = ({ coin }) => {
     const theme = useTheme();
     const mdScreen = useMediaQuery(theme.breakpoints.down('md'));
     const styles = {
-        width: "75%",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

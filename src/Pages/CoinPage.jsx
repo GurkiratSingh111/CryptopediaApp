@@ -48,14 +48,12 @@ const Crypto = () => {
     const smMatches = useMediaQuery(theme.breakpoints.down('sm'))
     const xs = useMediaQuery(theme.breakpoints.down('xs'));
     const largeScreenStyles = {
-        width: "30%",
-        position: "fixed",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         marginTop: 25,
         left: "0px",
-        borderRight: "2px solid grey",
     }
     const smallScreenStyles = {
         width: "100%",
@@ -90,7 +88,7 @@ const Crypto = () => {
         return <LinearProgress style={{ backgroundColor: "gold" }} />
     }
     return (
-        <Container style={{ display: "flex" }}>
+        <Container style={{ display: "flex", flexDirection: "column" }}>
             <Container
                 style={styles}>
                 <img
