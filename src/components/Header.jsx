@@ -1,7 +1,4 @@
-import React, { useState } from 'react'
-import { makeStyles } from '@mui/material/styles';
-import Brightness3Icon from '@mui/icons-material/Brightness3';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import React from 'react'
 import { AppBar, Container, MenuItem, Select, Toolbar, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
