@@ -4,7 +4,7 @@ import Carousel from './Carousel'
 
 const Banner = () => {
     const styles = {
-        backgroundImage: "url(./banner2.jpg)",
+        backgroundImage: "url(./bgImage.jpeg)",
         height: "400px",
         width: "100%"
     }
@@ -17,7 +17,7 @@ const Banner = () => {
                     flexDirection: "column",
                     justifyContent: "center",
                     textAlign: "center",
-                }}>
+                }}><br /><br />
                     <Typography
                         variant='h2'
                         style={{
@@ -35,6 +35,7 @@ const Banner = () => {
                         }}
                     >Get All The Info Regarding Your Favorite Crypto Currency
                     </Typography>
+                    <br /><br />
                 </div>
                 <Carousel />
             </Container >

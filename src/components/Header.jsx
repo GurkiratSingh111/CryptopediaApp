@@ -10,7 +10,7 @@ import { CryptoState } from '../CryptoContext';
 const Header = (props) => {
     const navigate = useNavigate();
     const { currency, setCurrency } = CryptoState();
-    console.log(currency);
+    console.log(currency)
     //const [theme, setTheme] = useState(true)
     //const icon = !theme ? <Brightness7Icon /> : <Brightness3Icon />
     // const light = {
