@@ -48,7 +48,7 @@ const Crypto = () => {
     const smMatches = useMediaQuery(theme.breakpoints.down('sm'))
     const xs = useMediaQuery(theme.breakpoints.down('xs'));
     const largeScreenStyles = {
-        width: "100%",
+        width: "80%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -84,11 +84,12 @@ const Crypto = () => {
     const marketStyles = mdMatches ? mdMarketData : smMatches ? smMarketData : xs ? xsMarketData : '';
     const marketDataStyles = `${marketStyles} ${marketData}`;
 
+    const containerStyle = mdMatches ? { display: "flex", flexDirection: "column", alignItems: "center" } : { display: "flex", flexDirection: "row", padding: "0px", margin: "0px" };
     if (!coin) {
         return <LinearProgress style={{ backgroundColor: "gold" }} />
     }
     return (
-        <Container style={{ display: "flex", flexDirection: "column" }}>
+        <Container style={containerStyle}>
             <Container
                 style={styles}>
                 <img
