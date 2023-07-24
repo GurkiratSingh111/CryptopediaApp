@@ -73,7 +73,7 @@ const CoinsTable = () => {
                             const profit = row.price_change_percentage_24h > 0;
                             return (
                                 <TableRow
-                                    onCLick={() => navigate('/coins/${row.id}')}
+                                    onCLick={() => navigate(`/coins/${row.id}`)}
                                     key={row.name}
                                     style={{
                                         cursor: "pointer",

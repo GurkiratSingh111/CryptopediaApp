@@ -7,6 +7,7 @@ import { useTheme } from '@mui/material/styles';
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import { chartDay } from '../config/data';
+import SelectButton from './SelectButton';
 
 const CoinInfo = ({ coin }) => {
     const [historicData, setHistoricData] = useState([]);
@@ -99,7 +100,13 @@ const CoinInfo = ({ coin }) => {
                             width: "100%"
                         }}>
                             {chartDay.map(day => (
-                                <button>{day.label}</button>
+                                <SelectButton
+                                    key={day.value}
+                                    onClick={() => { setDays(day.value) }}
+                                    selected={day.value === days}
+                                >
+                                    {day.label}
+                                </SelectButton>
 
                             ))}
                         </div>
