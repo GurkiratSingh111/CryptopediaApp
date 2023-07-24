@@ -4,13 +4,17 @@ import axios from 'axios';
 import { HistoricalChart } from '../config/api';
 import { CircularProgress, createTheme, ThemeProvider, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { Line } from 'react-chartjs-2';
+import Chart from 'chart.js/auto';
+import { chartDay } from '../config/data';
 
 const CoinInfo = ({ coin }) => {
-    const [historicalData, setHistoricData] = useState("");
+    const [historicData, setHistoricData] = useState([]);
     const [days, setDays] = useState(1);
     const { currency } = CryptoState();
     const fetchHistoricData = async () => {
         const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
+        console.log(data);
         setHistoricData(data.prices);
     }
     const theme = useTheme();
@@ -38,6 +42,7 @@ const CoinInfo = ({ coin }) => {
 
     useEffect(() => {
         fetchHistoricData();
+        console.log("fetched Data", historicData);
     }, [currency, days])
 
     const darkTheme = createTheme({
@@ -48,10 +53,19 @@ const CoinInfo = ({ coin }) => {
             type: "dark",
         },
     })
+    const label = historicData?.map(coin => {
+        let date = new Date(coin[0]);
+        let time = date.getHours() > 12
+            ? `${date.getHours() - 12}:${date.getMinutes()} PM`
+            : ` ${date.getHours()}:${date.getMinutes()} AM`;
+        return days === 1 ? time : date.toLocaleDateString();
+    })
+    console.log("Hello", label);
+    console.log("Historic Data", historicData);
     return (
         <ThemeProvider theme={darkTheme}>
             <div style={style}>
-                {!historicalData ? (
+                {!historicData ? (
                     <CircularProgress
                         style={{ color: "gold" }}
                         size={250}
@@ -59,6 +73,36 @@ const CoinInfo = ({ coin }) => {
                     />
                 ) : (
                     <>
+                        <Line
+                            data={{
+                                labels: label,
+                                datasets: [{
+                                    data: historicData?.map((coin) => {
+                                        return coin[1];
+                                    }),
+                                    label: `Price (Past ${days} Days) in ${currency}`,
+                                    borderColor: "#EEBC1D",
+                                }]
+                            }}
+                            options={{
+                                elements: {
+                                    point: {
+                                        radius: 1,
+                                    },
+                                }
+                            }}
+                        />
+                        <div style={{
+                            display: "flex",
+                            marginTop: 20,
+                            justifyContent: "space-around",
+                            width: "100%"
+                        }}>
+                            {chartDay.map(day => (
+                                <button>{day.label}</button>
+
+                            ))}
+                        </div>
 
                     </>
 
@@ -66,6 +110,7 @@ const CoinInfo = ({ coin }) => {
                 }
 
             </div>
+
         </ThemeProvider>
     )
 }
