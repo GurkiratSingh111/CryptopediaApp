@@ -45,7 +45,7 @@ const CoinsTable = () => {
             >
                 Cryptocurrency Prices By MarketCap
             </Typography>
-            <TextField
+            <TextField sx={{ input: { color: 'white' } }}
                 onChange={(e) => setSearch(e.target.value)}
                 InputLabelProps={{ style: { color: 'white' } }}
                 label="Search for a Crypto Currency.."
