@@ -52,6 +52,16 @@ const Header = (props) => {
                                 cursor: "pointer"
                             }}>Cryptopedia</Typography>
                         <Select
+                            sx={{
+                                color: 'white',
+                                '& .MuiOutlinedInput-notchedOutline': {
+                                    borderColor: 'white'
+                                },
+                                '& .MuiSvgIcon-root': {
+                                    color: 'white'
+                                }
+                            }}
+
                             variant="outlined" style={{
                                 width: 100,
                                 height: 40,
